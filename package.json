@@ -2,9 +2,9 @@
   "name": "the-train-thing",
   "version": "0.0.1",
   "description": "Train signalling sandbox",
-  "main": "build/index.js",
+  "main": "build/src/index.js",
   "scripts": {
-    "start": "node build/index.js",
+    "start": "node build/src/index.js",
     "test": "jest"
   },
   "author": "Per Enström",
