@@ -5,5 +5,5 @@
     "target": "es5",
     "lib": ["es6", "dom"]
   },
-  "include": ["./src/**/*"]
+  "include": ["./src/**/*", "__tests__/index.test.ts"]
 }
