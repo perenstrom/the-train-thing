@@ -1,0 +1,11 @@
+{
+  "name": "the-train-thing",
+  "version": "0.0.1",
+  "description": "Train signalling sandbox",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Per Enström",
+  "license": "ISC"
+}
