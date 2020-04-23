@@ -1,11 +1,7 @@
 import { RailPiece } from './RailPiece';
+import { Direction, RailPieces, SurroundingRailPieces, Field } from './Types';
 
 console.clear();
-
-interface Field {
-  width: number;
-  height: number;
-}
 
 export const create2dArray = (width: number, height: number): string[][] => {
   const emptyRow = new Array(width).fill('.');
@@ -18,7 +14,7 @@ export const create2dArray = (width: number, height: number): string[][] => {
 };
 
 export const calculateFieldRender = (
-  railPieces: Array<RailPiece>,
+  railPieces: RailPieces,
   field: Field
 ): string[][] => {
   const result = create2dArray(field.width, field.height);
@@ -30,19 +26,37 @@ export const calculateFieldRender = (
   return result;
 };
 
+export const getSurroundingRailPieces = (
+  railPieces: RailPieces,
+  railPiece: RailPiece
+): SurroundingRailPieces => {
+  return null;
+};
+
+export const addRailPiece = (
+  railPieces: RailPieces,
+  railPiece: RailPiece
+): RailPieces => {
+  railPieces.push(railPiece);
+  return railPieces;
+};
+
 const field: Field = { width: 5, height: 5 };
 
-const railPieces: Array<RailPiece> = [
-  { position: { x: 0, y: 0 } },
-  { position: { x: 1, y: 0 } },
-];
+const railPieces: RailPieces = [];
+railPieces.push({ position: { x: 0, y: 0 }, connections: {} });
+railPieces.push({
+  position: { x: 1, y: 0 },
+  connections: { [Direction.W]: railPieces[0] },
+});
+railPieces[0].connections[Direction.E] = railPieces[1];
 
-const renderField = () => {
+const renderField = (): void => {
   const fieldRows = calculateFieldRender(railPieces, field);
 
-  fieldRows.forEach(row => {
+  fieldRows.forEach((row) => {
     console.log(row.join(''));
-  })
+  });
 };
 
 renderField();
